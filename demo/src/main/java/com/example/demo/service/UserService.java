@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.User;
+//import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public ResponseEntity<User> create(User user){
+        user.setId(UUID.randomUUID());
         userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }

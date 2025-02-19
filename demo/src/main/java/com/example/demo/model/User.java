@@ -3,16 +3,21 @@ package com.example.demo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 
 @Data
-@Entity(name = "user")
+@Entity
+@Table(name = "users")
 @AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
-    private UUID id=UUID.randomUUID();
+    private UUID id;
     private String name;
     private int Age;
 }
